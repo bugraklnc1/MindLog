@@ -1,0 +1,32 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Ortam değişkenleri (asla commit etme!)
+.env
+.env.local
+.env*.local
+
+# Log dosyaları (hassas bilgi içerebilir)
+*.log
+flask_api.log
+
+# macOS sistem dosyaları
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Eğitilmiş ML model dosyaları (büyük boyutlu — Git LFS kullan veya dışarıda bırak)
+*.pkl
+*.joblib
+*.h5
+*.model

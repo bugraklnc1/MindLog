@@ -1,0 +1,62 @@
+# ============================================================
+# MindLog Monorepo - Root .gitignore
+# ============================================================
+
+# --- Environment Variables (NEVER commit these!) ---
+.env
+.env.local
+.env*.local
+
+# --- macOS ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ============================================================
+# MindLog (React Native / Expo)
+# ============================================================
+MindLog/node_modules/
+MindLog/.expo/
+MindLog/dist/
+MindLog/web-build/
+MindLog/expo-env.d.ts
+MindLog/.metro-health-check*
+MindLog/npm-debug.*
+MindLog/yarn-debug.*
+MindLog/yarn-error.*
+MindLog/*.tsbuildinfo
+
+# Native signing & certs
+MindLog/*.jks
+MindLog/*.p8
+MindLog/*.p12
+MindLog/*.key
+MindLog/*.mobileprovision
+MindLog/*.pem
+
+# Android build artifacts
+MindLog/android/.gradle/
+MindLog/android/.kotlin/
+MindLog/android/build/
+MindLog/android/local.properties
+
+# ============================================================
+# burnout_api (Python / Flask)
+# ============================================================
+burnout_api/venv/
+burnout_api/__pycache__/
+burnout_api/*.pyc
+burnout_api/*.pyo
+burnout_api/*.pyd
+burnout_api/*.egg-info/
+
+# ML model files (large binary files — use Git LFS or external storage)
+burnout_api/*.pkl
+burnout_api/*.joblib
+burnout_api/*.h5
+burnout_api/*.model
+
+# Log files (may contain sensitive info)
+burnout_api/*.log
