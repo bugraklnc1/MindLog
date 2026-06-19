@@ -10,9 +10,8 @@
 
 import { supabase } from './supabase';
 
-// ⚠️ ML API URL — .env dosyanızdaki EXPO_PUBLIC_ML_API_URL değişkenini ayarlayın
-// (.env.example dosyasına bakın)
-const ML_API_URL = process.env.EXPO_PUBLIC_ML_API_URL || 'https://productivitylog-api.onrender.com/predict';
+// ML API URL — set EXPO_PUBLIC_ML_API_URL in your .env file (see .env.example)
+const ML_API_URL = process.env.EXPO_PUBLIC_ML_API_URL;
 
 
 
