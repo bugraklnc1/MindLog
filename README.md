@@ -11,7 +11,6 @@ MindLog is a mobile application that helps users track their daily mood, habits,
 - **Daily Journal** — Write daily entries with voice-to-text support
 - **Habit Tracking** — Track custom habits with streaks and completion rates
 - **AI Mood Analysis** — Google Gemini analyzes journal entries and scores your mood (1–10)
-- **Smart Chips** — AI generates personalized follow-up questions to help you reflect deeper
 - **Burnout Detection** — ML model monitors 14-day patterns and warns you before you burn out
 - **User Feedback Loop** — Confirm or deny burnout predictions to improve model accuracy over time
 
