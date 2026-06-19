@@ -1,4 +1,4 @@
-# MindLog 🧠
+# MindLog 
 
 > A productivity and mental wellness tracker that uses AI to detect burnout risk.
 
@@ -6,7 +6,7 @@ MindLog is a mobile application that helps users track their daily mood, habits,
 
 ---
 
-## 📱 Features
+## Features
 
 - **Daily Journal** — Write daily entries with voice-to-text support
 - **Habit Tracking** — Track custom habits with streaks and completion rates
@@ -15,8 +15,46 @@ MindLog is a mobile application that helps users track their daily mood, habits,
 - **User Feedback Loop** — Confirm or deny burnout predictions to improve model accuracy over time
 
 ---
+## Screenshots
 
-## 🗂️ Project Structure
+Login:
+<img width="978" height="2048" alt="image" src="https://github.com/user-attachments/assets/3d477eed-91fe-44c6-8d3b-eb9c3cc4d495" />
+
+
+
+Today Screen (Streak, Habits, Voice/Text Journaling):
+<img width="979" height="2048" alt="image" src="https://github.com/user-attachments/assets/4beb6120-f830-4903-8a3e-93f5d74eb579" />
+
+
+
+Journaling with Voice:
+<img width="979" height="2048" alt="image" src="https://github.com/user-attachments/assets/8c8f7607-f71a-4fff-814f-19c7f1aae506" />
+
+
+
+
+History Screen (Past Journals):
+<img width="978" height="2048" alt="image" src="https://github.com/user-attachments/assets/bab80c15-3b9b-43d4-8b2d-eb52b837d6de" />
+
+
+
+Past Journal Screen (Mood Score, Journal, AI Summary, Completed Habits):
+<img width="980" height="2048" alt="image" src="https://github.com/user-attachments/assets/8cf56e43-85ca-4934-8150-62b7f3e3add7" />
+
+
+
+Graphics Screen:
+<img width="979" height="2048" alt="image" src="https://github.com/user-attachments/assets/55c6362f-a527-432c-a000-4a10efe01190" />
+
+
+
+Burnout Warning (Telling user that AI detected a burnout risk and they should take some rest and spend time with family.
+And asks them if they agree with the assessment and saves the user's response to the database to improve the ML model in the future):
+<img width="978" height="2048" alt="image" src="https://github.com/user-attachments/assets/d9088097-f027-42c3-a6b1-0ce315809d7b" />
+
+
+
+## Project Structure
 
 ```
 MindLog/
@@ -34,7 +72,7 @@ MindLog/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -42,12 +80,12 @@ MindLog/
 | Backend / DB | Supabase (PostgreSQL + Auth) |
 | AI Analysis | Google Gemini 2.5 Flash |
 | ML Model | scikit-learn (Random Forest) |
-| ML API | Python / Flask, deployed on Render |
+| ML API | Python / Flask |
 | Voice Input | expo-speech-recognition |
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -73,7 +111,7 @@ cp .env.example .env   # Fill in your own API keys
 npx expo start
 ```
 
-### 3. Set up the ML API (optional — already deployed)
+### 3. Set up the ML API 
 
 ```bash
 cd burnout_api
@@ -83,7 +121,9 @@ pip install -r requirements.txt
 python app.py
 ```
 
-> **Note:** The ML API is already deployed at `https://productivitylog-api.onrender.com`. You only need to run it locally if you want to modify the model.
+> After starting the API, set `EXPO_PUBLIC_ML_API_URL` in your `.env` file.  
+> See `.env.example` for the correct URL based on your setup (emulator / physical device).
+
 
 ---
 
