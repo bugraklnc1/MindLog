@@ -84,6 +84,70 @@ MindLog/
 | Voice Input | expo-speech-recognition |
 
 ---
+## Database Setup
+
+-- Enable UUID extension
+create extension if not exists "uuid-ossp";
+
+-- Entries
+create table entries (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) default auth.uid(),
+  content text,
+  mood_score integer,
+  ai_summary text,
+  created_at timestamp with time zone not null default timezone('utc', now())
+);
+
+-- Habits
+create table habits (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) default auth.uid(),
+  name text not null,
+  emoji text default '📌',
+  is_active boolean default true,
+  created_at timestamp with time zone not null default timezone('utc', now())
+);
+
+-- Habit Logs
+create table habit_logs (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) default auth.uid(),
+  habit_id uuid references habits(id),
+  completed_at date default current_date
+);
+
+-- AI Predictions
+create table ai_predictions (
+  id uuid primary key default uuid_generate_v4(),
+  user_id uuid references auth.users(id) not null,
+  mood_avg numeric not null,
+  task_rate numeric not null,
+  login_count integer not null,
+  ai_risk_score integer not null,
+  user_actual_state integer,
+  mood_trend double precision default 0.0,
+  created_at timestamp with time zone not null default timezone('utc', now())
+);
+
+-- Enable Row Level Security (users can only see their own data)
+alter table entries enable row level security;
+alter table habits enable row level security;
+alter table habit_logs enable row level security;
+alter table ai_predictions enable row level security;
+
+create policy "Users can manage their own entries"
+  on entries for all using (auth.uid() = user_id);
+
+create policy "Users can manage their own habits"
+  on habits for all using (auth.uid() = user_id);
+
+create policy "Users can manage their own habit_logs"
+  on habit_logs for all using (auth.uid() = user_id);
+
+create policy "Users can manage their own predictions"
+  on ai_predictions for all using (auth.uid() = user_id);
+
 
 ## Getting Started
 
@@ -123,6 +187,7 @@ python app.py
 
 > After starting the API, set `EXPO_PUBLIC_ML_API_URL` in your `.env` file.  
 > See `.env.example` for the correct URL based on your setup (emulator / physical device).
+
 
 
 ---
