@@ -25,8 +25,8 @@ flask_api.log
 .vscode/
 *.iml
 
-# Eğitilmiş ML model dosyaları (büyük boyutlu — Git LFS kullan veya dışarıda bırak)
-*.pkl
-*.joblib
-*.h5
-*.model
+# Trained ML model files — tracked intentionally (small size, stable model)
+# *.pkl
+# *.joblib
+# *.h5
+# *.model

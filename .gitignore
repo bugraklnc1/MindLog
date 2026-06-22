@@ -52,11 +52,11 @@ burnout_api/*.pyo
 burnout_api/*.pyd
 burnout_api/*.egg-info/
 
-# ML model files (large binary files — use Git LFS or external storage)
-burnout_api/*.pkl
-burnout_api/*.joblib
-burnout_api/*.h5
-burnout_api/*.model
+# ML model files — tracked intentionally (small size, stable model)
+# burnout_api/*.pkl
+# burnout_api/*.joblib
+# burnout_api/*.h5
+# burnout_api/*.model
 
 # Log files (may contain sensitive info)
 burnout_api/*.log

@@ -102,3 +102,37 @@ def test_predict_get_request_returns_405(client):
         f"Expected 405 for GET request, got: {response.status_code}. "
         f"This endpoint should only accept POST!"
     )
+
+
+def test_predict_empty_json_returns_error(client):
+    response = client.post("/predict", json={})
+
+    assert response.status_code == 200
+
+    data = response.get_json()
+    assert data is not None, "Response is not valid JSON!"
+    assert data.get("status") == "error", (
+        f"Expected 'error' for empty JSON body, got: {data.get('status')}"
+    )
+    assert "message" in data, "Error response should contain a 'message' field!"
+
+
+def test_predict_invalid_data_type_returns_error(client):
+    payload_invalid = {
+        "mood_avg": "abc",
+        "task_rate": 0.5,
+        "login_count": 8,
+        "mood_trend": 0.0
+    }
+
+    response = client.post("/predict", json=payload_invalid)
+
+    assert response.status_code == 200
+
+    data = response.get_json()
+    assert data is not None, "Response is not valid JSON!"
+    assert data.get("status") == "error", (
+        f"Expected 'error' for invalid data type (string instead of float), "
+        f"got: {data.get('status')}"
+    )
+    assert "message" in data, "Error response should contain a 'message' field!"
